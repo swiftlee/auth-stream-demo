@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <div className = "header">
             {/* Logo */}
@@ -13,12 +13,23 @@ const NavBar = () => {
             {/* Page Links */}
             <div className = "nav-items">
                 <Link className = "nav-link" to='/Home'>Home</Link>
-                <Link className = "nav-link" to='/Register'>Extra Page</Link>
                 <a className = "nav-link" target='_blank' rel="noopener noreferrer" href="https://reactjs.org/docs/getting-started.html">
                     React Docs
                 </a>
-                <a className = "nav-link" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/tutorial/tutorial.html">React Tutorial</a>
-                <a className = "nav-link" target="_blank" rel="noopener norefferer" href="https://nodejs.org/en/docs/">Node Docs</a>
+                {props.currentUser ?
+                    (
+                        <span>
+                            <Link className ="nav-link" to='/dashboard'>Profile</Link>
+                            <Link className ="nav-link" to='/logout'>Log Out</Link>
+                        </span>
+                    ) :
+                    (
+                    <span>
+                        <Link className ="nav-link" to="/login">Log In</Link>
+                        <Link className ="nav-link" to="/signup">Sign Up</Link>
+                    </span>
+                    )
+                }
             </div>
 
         </div>
