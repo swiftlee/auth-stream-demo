@@ -18,7 +18,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "react-router-dom": "^5.1.2"
   },
   "proxy": "http://localhost:5000",
